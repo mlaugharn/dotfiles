@@ -1,0 +1,3 @@
+export q=exit
+export :q=q
+export v=nvim

@@ -6,7 +6,7 @@ byobu
 rustup
 neovim
 ripgrep
-fdfind
+fd-find
 
 # nice to grab
 bat

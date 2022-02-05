@@ -1,3 +1,5 @@
-export q=exit
-export :q=q
-export v=nvim
+alias q=exit
+alias v=nvim
+alias x=exa
+alias f=fd
+alias r=rg

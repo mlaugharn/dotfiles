@@ -3,6 +3,7 @@ zsh
 oh-my-zsh
 tmux
 byobu
+rustup
 neovim
 ripgrep
 fdfind

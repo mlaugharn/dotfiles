@@ -7,6 +7,7 @@ neovim
 ripgrep
 fd-find
 docker
+pyenv
 
 # zsh
 oh-my-zsh
@@ -15,3 +16,6 @@ oh-my-zsh
 bat
 exa
 procs
+
+# python-specific
+pyenv-virtualenv

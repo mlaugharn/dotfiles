@@ -1,15 +1,17 @@
 # most useful
 zsh
-oh-my-zsh
 tmux
 byobu
 rustup
 neovim
 ripgrep
 fd-find
+docker
 
-# nice to grab
+# zsh
+oh-my-zsh
+
+# via cargo
 bat
 exa
 procs
-docker

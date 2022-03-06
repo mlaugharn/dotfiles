@@ -34,4 +34,4 @@ filetype plugin indent on
  set background=dark
  set encoding=utf8
  set laststatus=2
-
+ set clipboard=unnamed # windows clipboard

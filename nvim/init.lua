@@ -128,9 +128,15 @@ require('packer').startup(function(use)
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
-    -- easymotion
-    use 'easymotion/vim-easymotion'     -- <leader><leader> to trigger -- TODO: fix???
-
+    -- movement
+   use {
+        'phaazon/hop.nvim',
+        branch = 'v1', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
+    }
 
     -- sidebar
     use 'sidebar-nvim/sidebar.nvim'
@@ -243,20 +249,24 @@ vim.api.nvim_set_keymap(
 	{ noremap = true }
 )
 
+-- movement
+require('hop').setup()
+vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('o', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
+vim.api.nvim_set_keymap('o', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
+vim.api.nvim_set_keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('n', '<leader>e', "<cmd> lua require'hop'.hint_words({ hint_position = require'hop.hint'.HintPosition.END })<cr>", {})
+vim.api.nvim_set_keymap('v', '<leader>e', "<cmd> lua require'hop'.hint_words({ hint_position = require'hop.hint'.HintPosition.END })<cr>", {})
+vim.api.nvim_set_keymap('o', '<leader>e', "<cmd> lua require'hop'.hint_words({ hint_position = require'hop.hint'.HintPosition.END, inclusive_jump = true })<cr>", {})
 
--- key menu
-vim.o.timeoutlen = 300
-require 'key-menu'.set('n', '<leader>')
---require 'key-menu'.set('v', '<leader>')
-require 'key-menu'.set('n', 'g')
-require 'key-menu'.set('n', 'f')
 
 -- statusbar
 require('feline').setup({
     components = require('catppuccin.core.integrations.feline'),
 })
 require('feline').winbar.setup()
-
 
 -- file tree
 require'nvim-tree'.setup {
@@ -269,3 +279,13 @@ sidebar.setup(opts)
 
 require('coq')
 vim.cmd('COQnow') -- will be prompted to run :COQdeps on first run
+
+-- key menu
+-- displays menus for key combos beginning with specified prefix given specified mode
+vim.o.timeoutlen = 300
+require 'key-menu'.set('n', '<leader>')
+--require 'key-menu'.set('v', '<leader>')
+require 'key-menu'.set('n', 'g') -- goto
+require 'key-menu'.set('n', 'R') -- ripgrep
+
+

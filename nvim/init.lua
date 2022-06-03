@@ -1,4 +1,11 @@
-vim.g.python_host_prog = '/Users/marc/.pyenv/versions/3.10.0/envs/nvim_venv/bin/python'
+--[[
+notes:
+
+- use a nerdfont to get proper icon support
+- install universal-ctags, not ctags
+
+]]--
+
 vim.o.termguicolors = true
 vim.o.number = true
 vim.o.showtabline = 2
@@ -28,8 +35,6 @@ vim.o.wrap=true
 vim.o.background=dark
 vim.o.encoding='utf8'
 vim.o.laststatus=2
-
--- some inspiration from https://bryankegley.me/posts/nvim-getting-started/ (marc @ 2022-06-2)
 
 -- space as leader key
 vim.g.mapleader = ' '  
@@ -64,6 +69,7 @@ local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  -- vim.o.runtimepath = vim.fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
 end
 
 require('packer').startup(function(use)
@@ -72,9 +78,14 @@ require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'             -- language-server
     use 'nvim-treesitter/nvim-treesitter'   -- ast parsing
     use 'sheerun/vim-polyglot'              -- language pack
-    use 'nvim-lua/completion-nvim'
     use 'anott03/nvim-lspinstall'
+
+    -- completion
+    use 'ms-jpq/coq_nvim'                   -- fast completion
+    use 'ms-jpq/coq.artifacts'              -- snippets
+
     -- fuzzy finding
+    use 'junegunn/fzf'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/telescope.nvim'
@@ -82,6 +93,13 @@ require('packer').startup(function(use)
     -- motd enhancement
     use 'liuchengxu/vim-clap'
     use 'glepnir/dashboard-nvim'
+
+    -- show key mappings
+    use 'linty-org/key-menu.nvim'
+
+    -- statusline
+    use 'feline-nvim/feline.nvim'
+
     -- refactoring tools
     use {
         "ThePrimeagen/refactoring.nvim",
@@ -94,9 +112,28 @@ require('packer').startup(function(use)
     -- themes
     use 'tjdevries/colorbuddy.nvim'
     use 'bkegley/gloombuddy'
-
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin"
+    })
     -- formatting
     use {'prettier/vim-prettier', run='yarn install'}
+
+    -- file tree
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+          'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+
+    -- easymotion
+    use 'easymotion/vim-easymotion'     -- <leader><leader> to trigger -- TODO: fix???
+
+
+    -- sidebar
+    use 'sidebar-nvim/sidebar.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -112,7 +149,13 @@ local execute = vim.api.nvim_command
 vim.cmd('packadd packer.nvim')
 
 -- theme
-vim.g.colors_name = 'gloombuddy'
+-- vim.g.colors_name = 'gloombuddy'
+require('catppuccin').setup({
+        term_colors=true,
+})
+
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+vim.cmd[[colorscheme catppuccin]]
 
 
 -- tresitter config
@@ -124,9 +167,10 @@ configs.setup {
     }
 }
 
--- lsp config
+-- lsp + completion config
 local lspconfig = require'lspconfig'
-local completion = require'completion'
+local coq = require'coq'
+--local completion = require'completion'
 
 local function custom_on_attach(client)
     print('Attaching to ' .. client.name)
@@ -138,7 +182,7 @@ local default_config = {
 }
 
 -- setup lang servers
-lspconfig.tsserver.setup(default_config)
+lspconfig.tsserver.setup(coq.lsp_ensure_capabilities(default_config))
 
 -- less obtrusive diagnostic errors
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -199,3 +243,29 @@ vim.api.nvim_set_keymap(
 	{ noremap = true }
 )
 
+
+-- key menu
+vim.o.timeoutlen = 300
+require 'key-menu'.set('n', '<leader>')
+--require 'key-menu'.set('v', '<leader>')
+require 'key-menu'.set('n', 'g')
+require 'key-menu'.set('n', 'f')
+
+-- statusbar
+require('feline').setup({
+    components = require('catppuccin.core.integrations.feline'),
+})
+require('feline').winbar.setup()
+
+
+-- file tree
+require'nvim-tree'.setup {
+}
+
+-- sidebar
+local sidebar = require("sidebar-nvim")
+local opts = {open = true}
+sidebar.setup(opts)
+
+require('coq')
+vim.cmd('COQnow') -- will be prompted to run :COQdeps on first run

@@ -19,7 +19,8 @@ eval "$(pyenv virtualenv-init -)"
 
 ln -s $(which fdfind) ~/.local/bin/fd
 alias fd=fdfind
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ```
 
 

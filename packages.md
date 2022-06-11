@@ -9,7 +9,7 @@ tldr
 fzf
 ```
 
-# add to zshrc
+# zshrc
 ```
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -21,9 +21,6 @@ alias fd=fdfind
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 ```
 
-# docker
-
-# nvidia-docker
 
 # pyenv
 `curl https://pyenv.run | bash`
@@ -44,3 +41,8 @@ aussiegeek
 bat # better cat
 exa # better ls
 procs 
+
+
+# docker
+
+# nvidia-docker

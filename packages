@@ -1,20 +1,30 @@
 # most useful
 zsh
 tmux
-byobu
 rustup
 neovim
-ripgrep
-fd-find
+rg
+fd
 docker
-pyenv
+pyenv # !!
+tldr
 
 # zsh
 oh-my-zsh
 
+# oh-my-zsh plugins
+tmux
+history-substring-search
+git
+neovim
+pyenv
+
+# oh-my-zsh theme
+aussiegeek
+
 # via cargo
-bat
-exa
+bat 
+exa # ls++
 procs
 
 # python-specific

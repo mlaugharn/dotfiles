@@ -7,6 +7,7 @@ ripgrep
 fd-find 
 tldr
 fzf
+build-essential
 ```
 
 # zshrc

@@ -32,15 +32,16 @@ alias fd=fdfind
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 # oh-my-zsh plugins
-tmux history-substring-search pyenv fzf
+`tmux history-substring-search pyenv fzf`
 
 # oh-my-zsh theme
-aussiegeek
+`aussiegeek`
 
-# via cargo
-bat # better cat
-exa # better ls
-procs 
+# cargo install
+```
+bat
+exa
+```
 
 
 # docker

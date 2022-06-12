@@ -10,6 +10,7 @@ fd-find
 tldr
 fzf
 build-essential
+exa
 ```
 
 # pyenv
@@ -30,7 +31,6 @@ build-essential
 # cargo install
 ```
 bat
-exa
 ```
 
 # cuda 11.7 (x86_64 ubuntu 22.04)

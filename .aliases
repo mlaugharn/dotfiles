@@ -1,6 +1,6 @@
 alias q=exit
 alias v=nvim
 alias x=exa
-alias tree=exa --tree
+alias tree="exa --tree"
 alias f=fd
 alias r=rg

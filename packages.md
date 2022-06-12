@@ -10,20 +10,6 @@ fzf
 build-essential
 ```
 
-# zshrc
-```
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-
-ln -s $(which fdfind) ~/.local/bin/fd
-alias fd=fdfind
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-```
-
-
 # pyenv
 `curl https://pyenv.run | bash`
 

@@ -6,7 +6,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 # idiosyncrasy of installing fd with apt
-ln -s $(which fdfind) ~/.local/bin/fd
+# ln -s $(which fdfind) ~/.local/bin/fd
 alias fd=fdfind
 
 # fzf completions and ctrl-r support in zsh

@@ -23,7 +23,7 @@ exa
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 # oh-my-zsh plugins
-`tmux history-substring-search pyenv fzf`
+`tmux history-substring-search pyenv fzf vi-mode`
 
 # oh-my-zsh theme
 `aussiegeek`

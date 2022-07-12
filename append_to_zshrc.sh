@@ -10,4 +10,5 @@ eval "$(pyenv virtualenv-init -)"
 alias fd=fdfind
 
 # fzf completions and ctrl-r support in zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh  
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh

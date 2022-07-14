@@ -50,10 +50,10 @@ local key_mapper = function(mode, key, result)
 end
 
 -- disable arrow keys to force hjkl muscle memory
-key_mapper('', '<up>', '<nop>')
-key_mapper('', '<down>', '<nop>')
-key_mapper('', '<left>', '<nop>')
-key_mapper('', '<right>', '<nop>')
+-- key_mapper('', '<up>', '<nop>')
+-- key_mapper('', '<down>', '<nop>')
+-- key_mapper('', '<left>', '<nop>')
+-- key_mapper('', '<right>', '<nop>')
 
 -- also, use the keycombo 'jk' as an alias for '<ESC>'
 key_mapper('i', 'jk', '<ESC>')

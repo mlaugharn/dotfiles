@@ -48,4 +48,4 @@ sudo apt-get -y install cuda
 # nvidia-docker
 
 # fzf zsh autocomplete + ctrl-r
-dpkg -L fzf | grep zsh | parallel 'echo source {}' >> ~/.zshrc
+`dpkg -L fzf | grep zsh | parallel 'echo source {}' >> ~/.zshrc`

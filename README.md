@@ -16,6 +16,9 @@ exa
 # pyenv
 `curl https://pyenv.run | bash`
 
+# new pyenv shared venv 
+`export PYTHON_CONFIGURE_OPTS='--enable-shared' pyenv virtualenv <prev venv> <new venv>`
+
 # rustup 
 `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 

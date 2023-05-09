@@ -13,6 +13,7 @@ build-essential
 exa
 curl
 vim
+parallel
 ```
 
 # pyenv

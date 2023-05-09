@@ -11,6 +11,7 @@ tldr
 fzf
 build-essential
 exa
+curl
 ```
 
 # pyenv

@@ -12,6 +12,7 @@ fzf
 build-essential
 exa
 curl
+vim
 ```
 
 # pyenv

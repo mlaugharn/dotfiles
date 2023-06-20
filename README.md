@@ -55,3 +55,12 @@ sudo apt-get -y install cuda
 
 # fzf zsh autocomplete + ctrl-r
 `dpkg -L fzf | grep zsh | parallel 'echo source {}' >> ~/.zshrc`
+
+# [conda zsh autocompletion](https://stackoverflow.com/a/57793510)
+`git clone https://github.com/esc/conda-zsh-completion`
+
+at start (before ohmyzsh):
+`fpath+=/path/to/where/you/installed/conda-zsh-completion`
+
+after ohmyzsh:
+`compinit conda`

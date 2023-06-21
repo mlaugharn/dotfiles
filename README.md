@@ -64,3 +64,6 @@ at start (before ohmyzsh):
 
 after ohmyzsh:
 `compinit conda`
+
+# faster aussiegeek
+`git config --add oh-my-zsh.hide-dirty 1`

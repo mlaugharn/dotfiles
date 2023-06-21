@@ -67,3 +67,5 @@ after ohmyzsh:
 
 # faster aussiegeek
 `git config --add oh-my-zsh.hide-dirty 1`
+
+# don't use nvm zsh integration - very slow!!

@@ -75,7 +75,7 @@ compinit -C
 # don't use nvm zsh integration - very slow!!
 
 # windows clip in wsl
-`alias clip=/mnt/c/Windows/System32/clip.exe``
+`alias clip=/mnt/c/Windows/System32/clip.exe`
 
 #  default open tmux in interactive shells, attaching to existing main session
 ```zsh
@@ -83,3 +83,8 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   exec tmux new-session -A -s main
 fi 
 ```
+
+# streaming chatgpt queries
+`pip install chatblade`
+
+`alias chat=chatblade -s`

@@ -63,9 +63,23 @@ at start (before ohmyzsh):
 `fpath+=/path/to/where/you/installed/conda-zsh-completion`
 
 after ohmyzsh:
-`compinit conda`
+```zsh
+# negation, so that at least one exits on 0
+[ ! "$(find ~/.zcompdump -mtime 1)" ] || compinit conda
+compinit -C
+```
 
 # faster aussiegeek
 `git config --add oh-my-zsh.hide-dirty 1`
 
 # don't use nvm zsh integration - very slow!!
+
+# windows clip in wsl
+`alias clip=/mnt/c/Windows/System32/clip.exe``
+
+#  default open tmux in interactive shells, attaching to existing main session
+```zsh
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s main
+fi 
+```

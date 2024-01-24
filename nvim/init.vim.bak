@@ -35,3 +35,9 @@ filetype plugin indent on
  set encoding=utf8
  set laststatus=2
  set clipboard=unnamed # windows clipboard
+ # mouse split control under tmux
+ if has("mouse_sgr")
+     set ttymouse=sgr
+ else
+     set ttymouse=xterm2
+ end

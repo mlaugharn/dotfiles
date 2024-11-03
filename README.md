@@ -56,6 +56,10 @@ sudo apt-get -y install cuda
 # fzf zsh autocomplete + ctrl-r
 `dpkg -L fzf | grep zsh | parallel 'echo source {}' >> ~/.zshrc`
 
+on mac:
+
+`cat /opt/homebrew/Cellar/fzf/**/shell/key-bindings.zsh >> ~/.zshrc`
+
 # [conda zsh autocompletion](https://stackoverflow.com/a/57793510)
 `git clone https://github.com/esc/conda-zsh-completion`
 

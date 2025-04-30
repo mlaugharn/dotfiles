@@ -16,6 +16,14 @@ vim
 parallel
 ```
 
+# pip / uv
+```
+llm
+symbex
+files-to-prompt
+ttok
+```
+
 # pyenv
 `curl https://pyenv.run | bash`
 
@@ -30,6 +38,14 @@ parallel
 
 # oh-my-zsh plugins
 `tmux history-substring-search pyenv fzf vi-mode`
+
+## to install llm-oh-my-zsh plugin:
+
+```bash
+git clone https://github.com/eliyastein/llm-zsh-plugin ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/llm
+# Add llm to your plugins in ~/.zshrc:
+plugins=(... llm)
+```
 
 # oh-my-zsh theme
 `aussiegeek`

@@ -37,7 +37,7 @@ ttok
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 # oh-my-zsh plugins
-`tmux history-substring-search pyenv fzf vi-mode`
+`tmux history-substring-search pyenv fzf vi-mode uv zsh-exa`
 
 ## to install llm-oh-my-zsh plugin:
 
